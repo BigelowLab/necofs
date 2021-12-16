@@ -1,0 +1,49 @@
+---
+title: "NECOFS Physics Model"
+output: github_document
+---
+
+Convenient access from R to [FVCOM](http://fvcom.smast.umassd.edu/fvcom/)
+[NECOFS](http://fvcom.smast.umassd.edu/necofs/) ocean physics model.
+
+### Requirements
+
+ + [R 4+](https://www.r-project.org/)
+ + [ncdf4](https://cran.r-project.org/package=ncfd4)
+ + [rlang](https://cran.r-project.org/package=rlang)
+ + [dplyr](https://cran.r-project.org/package=dplyr)
+ + [sf](https://cran.r-project.org/package=sf)
+ + [R6](https://cran.r-project.org/package=R6)
+ + [fvcom](https://github.com/BigelowLab/fvcom) **note this is not from CRAN**
+ + [locate](https://github.com/BigelowLab/locate) **note this is not from CRAN**
+
+### Installation
+
+```
+devtools::install_github("BigelowLab/locate")
+devtools::install_github("BigelowLab/fvcom")
+devtools::install_github("BigelowLab/necofs")
+```
+
+## Data Access
+
+```{r open}
+library(necofs)
+X <- NECOFSPhysics() # optional arguments, too.  See \code{?CascoBayPhysics}
+X
+```
+
+## Track a point
+```{r track}
+# We have already prepared an example track to save time
+#p0 <- X$random_points(n = 1)
+#pt <- particle_track(X, P0 = p0,  tstep = 60*20, tmax = (24*3600) * 7) 
+pt <- example_track()
+p0 <- pt |> dplyr::slice(1)
+pt
+```
+
+```{r plot_track}
+plot_track(pt, X = X)
+plot_track(pt, X = X, ext = X$M)
+```

@@ -1,0 +1,24 @@
+Package: necofs
+Title: FVCOM for NECOFS
+Description: Convenience tools for working with NECOFS FVCOM datasets.
+Version: 0.1
+Encoding: UTF-8
+Depends:
+    R (>= 4.1)
+Imports:
+    grDevices,
+    graphics,
+    utils, 
+    stats,
+    rlang,
+    ncdf4,
+    dplyr,
+    sf,
+    fvcom,
+    locate,
+    R6
+Maintainer: Ben Tupper <btupper@bigelow.org>
+Author: Ben Tupper <btupper@bigelow.org>
+URL: https://github.com/BigelowLab/necofs
+License: MIT + file LICENSE
+RoxygenNote: 7.1.2
