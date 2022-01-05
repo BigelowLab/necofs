@@ -2,7 +2,7 @@
 % Please edit documentation in R/track.R
 \name{particle_track}
 \alias{particle_track}
-\title{Track a particle}
+\title{Track one or more particles}
 \usage{
 particle_track(
   X,
@@ -12,6 +12,7 @@ particle_track(
   reverse = FALSE,
   drag = c(0, 0, 0),
   show_progress = FALSE,
+  verbose = FALSE,
   filename = c("particle_track.gpkg", NA)[2],
   overwrite = TRUE
 )
@@ -19,7 +20,7 @@ particle_track(
 \arguments{
 \item{X}{NE_Physics object}
 
-\item{P0}{starting point, see \code{NE_Physics$random_point}}
+\item{P0}{starting point(s), see \code{NE_Physics$random_point}}
 
 \item{tstep}{numeric, seconds between each iteration}
 
@@ -34,6 +35,8 @@ Drag units must be the same as the units of \code{u}, \code{v}, and \code{ww}.}
 
 \item{show_progress}{logical, if TRUE then show a progress bar}
 
+\item{verbose}{logical, if TRUE output messages (for development)}
+
 \item{filename}{an optional filename to save the track to or NA to skip}
 
 \item{overwrite}{logical, if TRUE allow overwriting of existing files}
@@ -42,5 +45,5 @@ Drag units must be the same as the units of \code{u}, \code{v}, and \code{ww}.}
 sf object of type POINT
 }
 \description{
-Track a particle
+Track one or more particles
 }

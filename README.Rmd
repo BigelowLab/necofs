@@ -28,8 +28,11 @@ devtools::install_github("BigelowLab/necofs")
 ## Data Access
 
 ```{r open}
-library(necofs)
-X <- NECOFSPhysics() # optional arguments, too.  See \code{?CascoBayPhysics}
+suppressPackageStartupMessages({
+  library(necofs)
+})
+
+X <- NECOFSPhysics() # optional arguments, too - see ?NECOFSPhysics
 X
 ```
 
